@@ -1,8 +1,9 @@
 // src/components/Slider.tsx
 
 import React from "react";
-import slider1 from "../../assets/img/gear-master-slider.png";
-
+import slider1 from "../../assets/img/gear-master-slider.png"; // Ensure this path is correct
+import slider2 from "../../assets/img/slider2.jpg"; // Ensure this path is correct
+import slider3 from "../../assets/img/gear-master-logo.png"; 
 
 const Slider: React.FC = () => {
   return (
@@ -28,22 +29,14 @@ const Slider: React.FC = () => {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img
-            src={slider1}
-            className="d-block w-100"
-            alt="Slide 1"
-          />
+          <img src={slider1} className="d-block w-100" alt="Slide 1" />
+        </div>
+        <div className="carousel-item">
+          <img src={slider2} className="d-block w-100" alt="Slide 2" />
         </div>
         <div className="carousel-item">
           <img
-            src="https://via.placeholder.com/1200x400?text=Slide+2"
-            className="d-block w-100"
-            alt="Slide 2"
-          />
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://via.placeholder.com/1200x400?text=Slide+3"
+            src={slider3}
             className="d-block w-100"
             alt="Slide 3"
           />

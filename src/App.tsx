@@ -8,6 +8,9 @@ import ProductListing from "./components/Products/ProductListing";
 import ProductPage from "./components/Products/ProductPage";
 import CategoryPage from "./pages/CategoryPage";
 import Cart from "./pages/Cart";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Ensure this import for JS functionality
+
 
 const App: React.FC = () => {
   return (
