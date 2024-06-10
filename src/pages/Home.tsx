@@ -15,10 +15,7 @@ const Home: React.FC = () => {
         <Slider />
       </div>
 
-      <div className="container text-center mt-4">
-        <img src={logo} alt="Gear Master Logo" width="150" height="150" />
-        <h1 className="text-black text-4xl font-bold">Gear Master</h1>
-      </div>
+
 
       {/* Product Listing */}
       <div className="container mt-5 flex-grow">

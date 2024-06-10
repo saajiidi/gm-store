@@ -3,7 +3,7 @@
 import React from "react";
 import slider1 from "../../assets/img/gear-master-slider.png"; // Ensure this path is correct
 import slider2 from "../../assets/img/slider2.jpg"; // Ensure this path is correct
-import slider3 from "../../assets/img/logo.png"; 
+import slider3 from "../../assets/img/slider3.png"; 
 
 const Slider: React.FC = () => {
   return (
