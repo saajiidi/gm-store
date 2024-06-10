@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.2bfbc51c.css",
-    "main.js": "/static/js/main.33333973.js",
-    "static/js/453.0340aa77.chunk.js": "/static/js/453.0340aa77.chunk.js",
-    "index.html": "/index.html",
-    "main.2bfbc51c.css.map": "/static/css/main.2bfbc51c.css.map",
-    "main.33333973.js.map": "/static/js/main.33333973.js.map",
-    "453.0340aa77.chunk.js.map": "/static/js/453.0340aa77.chunk.js.map"
+    "main.css": "/gm-store/static/css/main.449c8008.css",
+    "main.js": "/gm-store/static/js/main.7617d7f6.js",
+    "static/js/453.0340aa77.chunk.js": "/gm-store/static/js/453.0340aa77.chunk.js",
+    "static/media/logo.png": "/gm-store/static/media/logo.8fccad478e619d3e4a1d.png",
+    "static/media/slider2.jpg": "/gm-store/static/media/slider2.d693eef7f91c178ff70c.jpg",
+    "static/media/gear-master-logo.png": "/gm-store/static/media/gear-master-logo.bf6967abd80cd229c405.png",
+    "static/media/gear-master-slider.png": "/gm-store/static/media/gear-master-slider.8f3f30c234a9c33b2979.png",
+    "index.html": "/gm-store/index.html",
+    "main.449c8008.css.map": "/gm-store/static/css/main.449c8008.css.map",
+    "main.7617d7f6.js.map": "/gm-store/static/js/main.7617d7f6.js.map",
+    "453.0340aa77.chunk.js.map": "/gm-store/static/js/453.0340aa77.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bfbc51c.css",
-    "static/js/main.33333973.js"
+    "static/css/main.449c8008.css",
+    "static/js/main.7617d7f6.js"
   ]
 }
