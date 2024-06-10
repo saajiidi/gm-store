@@ -3,7 +3,8 @@
 import React from "react";
 import Slider from "../components/Slider/Slider";
 import logo from "../assets/img/gear-master-logo.png"
-
+import ProductCard from "../components/Products/ProductCard";
+import ProductListing from "../components/Products/ProductListing";
 
 
 const Home: React.FC = () => {
@@ -21,7 +22,7 @@ const Home: React.FC = () => {
 
       {/* Product Listing */}
       <div className="container mt-5 flex-grow">
-        {/* Your product listing content */}
+        <ProductListing />
       </div>
     </div>
   );

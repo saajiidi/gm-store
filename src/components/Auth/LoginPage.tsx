@@ -4,8 +4,10 @@ import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  FacebookAuthProvider,
 } from "firebase/auth";
 import firebaseApp from "../../firebaseConfig"; // Ensure this import is present
+import { FaGoogle, FaFacebook } from "react-icons/fa";
 
 const auth = getAuth(firebaseApp); // Use initialized Firebase app
 
@@ -34,6 +36,16 @@ const LoginPage: React.FC = () => {
       console.log("Google sign in with:", result.user);
     } catch (error) {
       console.error("Error logging in with Google:", error);
+    }
+  };
+
+  const handleFacebookLogin = async () => {
+    const provider = new FacebookAuthProvider();
+    try {
+      const result = await signInWithPopup(auth, provider);
+      console.log("Facebook sign in with:", result.user);
+    } catch (error) {
+      console.error("Error logging in with Facebook:", error);
     }
   };
 
@@ -68,7 +80,12 @@ const LoginPage: React.FC = () => {
         </button>
       </form>
       <button className="btn btn-secondary mt-3" onClick={handleGoogleLogin}>
+        <FaGoogle className="mr-2" />
         Login with Google
+      </button>
+      <button className="btn btn-secondary mt-3" onClick={handleFacebookLogin}>
+        <FaFacebook className="mr-2" />
+        Login with Facebook
       </button>
     </div>
   );
