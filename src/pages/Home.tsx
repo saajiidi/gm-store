@@ -1,36 +1,27 @@
+// src/pages/Home.tsx
+
 import React from "react";
 import Slider from "../components/Slider/Slider";
-import ProductCard from "../components/Products/ProductCard";
+import logo from "../assets/img/gear-master-logo.png"
+
+
 
 const Home: React.FC = () => {
-  const products = [
-    // mock product data
-    {
-      id: 1,
-      name: "Helmet",
-      image: "https://via.placeholder.com/150",
-      originalPrice: 50,
-      discountedPrice: 30,
-      quantity: 10,
-    },
-    {
-      id: 2,
-      name: "Bike Light",
-      image: "https://via.placeholder.com/150",
-      originalPrice: 20,
-      discountedPrice: 15,
-      quantity: 5,
-    },
-    // add more products as needed
-  ];
-
   return (
-    <div className="container mx-auto p-4">
-      <Slider />
-      <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+    <div className="bg-white text-black min-h-screen flex flex-col">
+      {/* Slider */}
+      <div className="container mx-auto mt-4">
+        <Slider />
+      </div>
+
+      <div className="container text-center mt-4">
+        <img src={logo} alt="Gear Master Logo" width="150" height="150" />
+        <h1 className="text-black text-4xl font-bold">Gear Master</h1>
+      </div>
+
+      {/* Product Listing */}
+      <div className="container mt-5 flex-grow">
+        {/* Your product listing content */}
       </div>
     </div>
   );

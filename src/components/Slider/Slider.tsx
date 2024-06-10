@@ -1,41 +1,51 @@
+// src/components/Slider.tsx
+
 import React from "react";
+import slider1 from "../../assets/img/gear-master-slider.png";
+
 
 const Slider: React.FC = () => {
   return (
     <div
       id="carouselExampleIndicators"
       className="carousel slide"
-      data-ride="carousel"
+      data-bs-ride="carousel"
     >
       <ol className="carousel-indicators">
         <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="0"
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="0"
           className="active"
         ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="1"
+        ></li>
+        <li
+          data-bs-target="#carouselExampleIndicators"
+          data-bs-slide-to="2"
+        ></li>
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src="https://via.placeholder.com/1200x400?text=Bike+Accessories+1"
+            src={slider1}
             className="d-block w-100"
-            alt="Bike Accessories 1"
+            alt="Slide 1"
           />
         </div>
         <div className="carousel-item">
           <img
-            src="https://via.placeholder.com/1200x400?text=Bike+Accessories+2"
+            src="https://via.placeholder.com/1200x400?text=Slide+2"
             className="d-block w-100"
-            alt="Bike Accessories 2"
+            alt="Slide 2"
           />
         </div>
         <div className="carousel-item">
           <img
-            src="https://via.placeholder.com/1200x400?text=Bike+Accessories+3"
+            src="https://via.placeholder.com/1200x400?text=Slide+3"
             className="d-block w-100"
-            alt="Bike Accessories 3"
+            alt="Slide 3"
           />
         </div>
       </div>
@@ -43,7 +53,7 @@ const Slider: React.FC = () => {
         className="carousel-control-prev"
         href="#carouselExampleIndicators"
         role="button"
-        data-slide="prev"
+        data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
         <span className="sr-only">Previous</span>
@@ -52,7 +62,7 @@ const Slider: React.FC = () => {
         className="carousel-control-next"
         href="#carouselExampleIndicators"
         role="button"
-        data-slide="next"
+        data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="sr-only">Next</span>
