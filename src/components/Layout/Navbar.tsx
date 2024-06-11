@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 import logo from "../../assets/img/logo.png";
+import "../../assets/css/Navbar.css"; // Create and import this CSS file for animations
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -16,6 +18,8 @@ const accountItems = [
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -33,23 +37,46 @@ const Navbar: React.FC = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <nav className="bg-black text-white p-2 fixed w-full z-10 top-0">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-xl font-bold">
+        <div className="text-xl font-bold flex items-center">
           <Link
             to="/"
-            className="text-white no-underline hover:no-underline"
+            className="text-white no-underline hover:no-underline flex"
             onClick={closeMobileMenu}
           >
-            Gear Master
+            {Array.from("Gear Master").map((letter, index) => (
+              <span key={index} className="gear-master-letter">
+                {letter}
+              </span>
+            ))}
           </Link>
         </div>
 
         <div className="">
           <img src={logo} alt="Gear Master Logo" width="150" height="150" />
         </div>
-        <div className="hidden md:flex space-x-4">
+
+        <div className="hidden md:flex items-center space-x-4">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Search"
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className="rounded-full px-4 py-2 bg-gray-200 text-black placeholder-gray-500"
+            />
+            <FaSearch className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500" />
+          </div>
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -86,9 +113,25 @@ const Navbar: React.FC = () => {
             )}
           </div>
         </div>
-        <div className="md:hidden">
-          <button onClick={toggleMobileMenu}>
-            <span className="text-xl">☰</span>
+
+        <div className="md:hidden flex items-center">
+          <button onClick={toggleSearch} className="text-xl">
+            <FaSearch />
+          </button>
+          {isSearchOpen && (
+            <div className="relative ml-2">
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="rounded-full px-4 py-2 bg-gray-200 text-black placeholder-gray-500"
+              />
+              <FaSearch className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500" />
+            </div>
+          )}
+          <button onClick={toggleMobileMenu} className="text-xl ml-4">
+            ☰
           </button>
         </div>
       </div>
