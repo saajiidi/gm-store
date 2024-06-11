@@ -1,5 +1,3 @@
-// src/components/Navbar.tsx
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
@@ -27,11 +25,25 @@ const Navbar: React.FC = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleAccountItemClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className="bg-black text-white p-2 fixed w-full z-10 top-0">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-xl font-bold">
-          <Link to="/">Gear Master</Link>
+          <Link
+            to="/"
+            className="text-white no-underline hover:no-underline"
+            onClick={closeMobileMenu}
+          >
+            Gear Master
+          </Link>
         </div>
 
         <div className="">
@@ -42,7 +54,8 @@ const Navbar: React.FC = () => {
             <Link
               key={item.name}
               to={item.path}
-              className="font-bold text-white hover:text-gray-300"
+              className="font-bold text-white hover:text-gray-300 no-underline"
+              onClick={closeMobileMenu}
             >
               {item.name}
             </Link>
@@ -60,8 +73,11 @@ const Navbar: React.FC = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className="block px-4 py-2 text-white hover:bg-gray-700"
-                    onClick={() => setIsDropdownOpen(false)}
+                    className="block px-4 py-2 text-white hover:bg-gray-700 no-underline"
+                    onClick={() => {
+                      handleAccountItemClick();
+                      setIsDropdownOpen(false);
+                    }}
                   >
                     {item.name}
                   </Link>
@@ -82,8 +98,8 @@ const Navbar: React.FC = () => {
             <Link
               key={item.name}
               to={item.path}
-              className="font-bold text-white hover:text-gray-300"
-              onClick={toggleMobileMenu}
+              className="font-bold text-white hover:text-gray-300 no-underline"
+              onClick={closeMobileMenu}
             >
               {item.name}
             </Link>
@@ -98,8 +114,11 @@ const Navbar: React.FC = () => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className="block px-4 py-2 text-white hover:bg-gray-700"
-                    onClick={() => setIsDropdownOpen(false)}
+                    className="block px-4 py-2 text-white hover:bg-gray-700 no-underline"
+                    onClick={() => {
+                      handleAccountItemClick();
+                      setIsDropdownOpen(false);
+                    }}
                   >
                     {item.name}
                   </Link>
