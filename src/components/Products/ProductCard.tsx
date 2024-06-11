@@ -57,10 +57,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </Link>
 
           <div className="flex justify-between mt-4 space-x-2">
-            <button className="w-1/2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button className="w-1/2 bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
               Add to Cart
             </button>
-            <button className="w-1/2 bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
+            <button className="w-1/2 bg-blue-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
               Buy Now
             </button>
           </div>
