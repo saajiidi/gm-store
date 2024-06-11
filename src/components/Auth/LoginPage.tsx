@@ -50,7 +50,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-3 p-5 rounded-lg shadow-lg">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div className="form-group">

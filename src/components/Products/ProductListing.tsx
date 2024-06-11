@@ -26,6 +26,30 @@ const products = [
     discountedPrice: 30.0,
     quantity: 20,
   },
+  {
+    id: 4,
+    name: "Bike Helmet",
+    image: "https://via.placeholder.com/300x300?text=Bike+Helmet",
+    originalPrice: 120.0,
+    discountedPrice: 100.0,
+    quantity: 10,
+  },
+  {
+    id: 5,
+    name: "Bike Light",
+    image: "https://via.placeholder.com/300x300?text=Bike+Light",
+    originalPrice: 60.0,
+    discountedPrice: 50.0,
+    quantity: 15,
+  },
+  {
+    id: 6,
+    name: "Bike Lock",
+    image: "https://via.placeholder.com/300x300?text=Bike+Lock",
+    originalPrice: 40.0,
+    discountedPrice: 30.0,
+    quantity: 20,
+  },
   // Add more products as needed
 ];
 

@@ -20,6 +20,25 @@ const products = [
     quantity: 15,
     description: "Bright and durable bike light.",
   },
+
+  {
+    id: 3,
+    name: "Bike Helmet",
+    image: "https://via.placeholder.com/300x300?text=Bike+Helmet",
+    originalPrice: 120.0,
+    discountedPrice: 100.0,
+    quantity: 10,
+    description: "High-quality bike helmet.",
+  },
+  {
+    id: 4,
+    name: "Bike Light",
+    image: "https://via.placeholder.com/300x300?text=Bike+Light",
+    originalPrice: 60.0,
+    discountedPrice: 50.0,
+    quantity: 15,
+    description: "Bright and durable bike light.",
+  },
   // Add more products as needed
 ];
 
@@ -35,7 +54,7 @@ const ProductPage: React.FC = () => {
   }
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-3 p-5 rounded-lg shadow-lg">
       <div className="row">
         <div className="col-md-6">
           <img src={product.image} className="img-fluid" alt={product.name} />
