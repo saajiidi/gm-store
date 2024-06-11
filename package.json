@@ -1,7 +1,7 @@
 {
   "name": "gm-store",
   "version": "0.1.0",
-  "homepage": "https://saajiidi.github.io/gm-store",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

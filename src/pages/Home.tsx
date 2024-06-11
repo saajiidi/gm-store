@@ -2,8 +2,6 @@
 
 import React from "react";
 import Slider from "../components/Slider/Slider";
-import logo from "../assets/img/gear-master-logo.png"
-import ProductCard from "../components/Products/ProductCard";
 import ProductListing from "../components/Products/ProductListing";
 
 

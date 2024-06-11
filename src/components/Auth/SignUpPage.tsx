@@ -50,7 +50,7 @@ const SignUpPage: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-3 p-5 rounded-lg shadow-lg">
       <h2>Sign Up</h2>
       <form onSubmit={handleSignUp}>
         <div className="form-group">

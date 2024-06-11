@@ -6,10 +6,10 @@ import {
   signInWithPopup,
   FacebookAuthProvider,
 } from "firebase/auth";
-import firebaseApp from "../../firebaseConfig"; // Ensure this import is present
+import firebaseApp from "../../firebaseConfig";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 
-const auth = getAuth(firebaseApp); // Use initialized Firebase app
+const auth = getAuth(firebaseApp);
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
