@@ -20,7 +20,7 @@ const socialMediaLinks = [
   {
     name: "Address",
     icon: <FaMapMarkerAlt />,
-    text: "BGB Market, Shop No: 29/Kha, House: 19, Road: 35, Sector: 7, Uttara, Dhaka: 1230",
+    text: "BGB market, shop No: 29/kha, house, 19. Road, 35, sector: 7, Uttara Dhaka: 1230",
   },
   {
     name: "Location",
@@ -32,34 +32,34 @@ const socialMediaLinks = [
 const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white text-center py-4 mt-auto">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4">
         <p>&copy; 2024 Gear Master. All rights reserved.</p>
-        <p className="flex justify-center items-center">
-          Follow us on
-          {socialMediaLinks.slice(0, 2).map((link, index) => (
-            <a
-              key={index}
-              className="text-white mx-2"
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {link.icon}
-            </a>
-          ))}
-        </p>
-        <div className="flex justify-center items-center mt-1">
-          <div className="flex items-center mx-4">
+        <div className="flex flex-col md:flex-row justify-center items-center mt-4 space-y-2 md:space-y-0 md:space-x-4">
+          <div className="flex items-center space-x-2">
+            <span>Follow us on:</span>
+            {socialMediaLinks.slice(0, 2).map((link, index) => (
+              <a
+                key={index}
+                className="text-white hover:text-gray-300 mx-1"
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
+          <div className="flex items-center space-x-2">
             <FaMapMarkerAlt className="mr-1" />
             <span>{socialMediaLinks[2].text}</span>
           </div>
           <a
-            className="flex items-center text-white mx-4"
+            className="flex items-center text-white hover:text-gray-300 space-x-2"
             href={socialMediaLinks[3].url}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLocationArrow className="mr-2" />
+            <FaLocationArrow className="mr-1" />
             <span>View on Map</span>
           </a>
         </div>
