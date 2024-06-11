@@ -63,7 +63,7 @@ const LoginPage: React.FC = () => {
             </label>
             <input
               type="email"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -79,7 +79,7 @@ const LoginPage: React.FC = () => {
             </label>
             <input
               type="password"
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -88,21 +88,21 @@ const LoginPage: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full py-2 mt-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            className="w-full py-2 mt-4 bg-blue-600 text-white rounded-full hover:bg-blue-700"
           >
             Login
           </button>
         </form>
         <div className="mt-6 space-y-4">
           <button
-            className="w-full py-2 flex items-center justify-center bg-orange-500 text-white rounded-md hover:bg-orange-600"
+            className="w-full py-2 flex items-center justify-center bg-orange-500 text-white rounded-full hover:bg-orange-600"
             onClick={handleGoogleLogin}
           >
             <FaGoogle className="mr-2" />
             Sign in with Google
           </button>
           <button
-            className="w-full py-2 flex items-center justify-center bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            className="w-full py-2 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700"
             onClick={handleFacebookLogin}
           >
             <FaFacebook className="mr-2" />
