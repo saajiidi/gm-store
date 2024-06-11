@@ -25,3 +25,35 @@
     transform: translateY(0);
   }
 }
+/* Add this CSS file to create the animation for the Gear Master text */
+
+
+
+
+/* Styles for the search bar and button */
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  width: 200px;
+  padding-right: 2.5rem; /* Make space for the search icon */
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0.5rem;
+}
+
+.search-icon.inside {
+  position: absolute;
+  right: 0.5rem;
+}
+
+/* Additional styles for responsive design */
+

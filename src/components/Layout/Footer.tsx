@@ -1,64 +1,196 @@
-import React from "react";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaMapMarkerAlt,
-  FaLocationArrow,
-} from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+import logo from "../../assets/img/logo.png";
+import "../../assets/css/Navbar.css"; // Create and import this CSS file for animations
 
-const socialMediaLinks = [
-  {
-    name: "Facebook",
-    icon: <FaFacebook />,
-    url: "https://www.facebook.com/profile.php?id=61558077623189",
-  },
-  {
-    name: "Instagram",
-    icon: <FaInstagram />,
-    url: "https://www.instagram.com",
-  },
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "Products", path: "/products" },
+  { name: "Cart", path: "/cart" },
 ];
 
-const Footer: React.FC = () => {
+const accountItems = [
+  { name: "Login", path: "/login" },
+  { name: "Sign Up", path: "/signup" },
+];
+
+const Navbar: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleAccountItemClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
-    <footer className="bg-black text-white text-center py-4 mt-auto">
-      <div className="container mx-auto px-4">
-        <p>&copy; 2024 Gear Master. All Rights Reserved.</p>
-        <div className="mt-4">
-          <div className="flex justify-center items-center space-x-4 mb-2">
-            <span>Follow us on:</span>
-            {socialMediaLinks.map((link, index) => (
-              <a
-                key={index}
-                className="text-white hover:text-gray-300 mx-1"
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link.icon}
-              </a>
+    <nav className="bg-black text-white p-2 fixed w-full z-10 top-0">
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="text-xl font-bold flex items-center">
+          <Link
+            to="/"
+            className="text-white no-underline hover:no-underline flex"
+            onClick={closeMobileMenu}
+          >
+            {Array.from("Gear Master").map((letter, index) => (
+              <span key={index} className="gear-master-letter">
+                {letter}
+              </span>
             ))}
+          </Link>
+        </div>
+
+        <div className="">
+          <img src={logo} alt="Gear Master Logo" width="150" height="150" />
+        </div>
+
+        <div className="hidden md:flex items-center space-x-4">
+          <div className="relative">
+            <div className={`search-container ${isSearchOpen ? "active" : ""}`}>
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="search-input rounded-full px-4 py-2 bg-gray-200 text-black placeholder-gray-500"
+              />
+              <button
+                type="button"
+                onClick={toggleSearch}
+                className="search-button"
+              >
+                <FaSearch className="search-icon" />
+              </button>
+            </div>
           </div>
-          <div className="flex justify-center items-center space-x-2 mt-2">
-            <FaMapMarkerAlt />
-            <span>BGB Market, Shop: 29/Kha, House 19, Road 35, Sector 7</span>
-          </div>
-          <span>Uttara, Dhaka 1230</span>
-          <div className="flex justify-center items-center space-x-2 mt-2">
-            <a
-              className="text-white hover:text-gray-300 flex items-center space-x-2"
-              href="https://www.google.com/maps/place/23.87262756989467,90.40014224456021"
-              target="_blank"
-              rel="noopener noreferrer"
+
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className="font-bold text-white hover:text-gray-300 no-underline"
+              onClick={closeMobileMenu}
             >
-              <FaLocationArrow />
-              <span>View on Map</span>
-            </a>
+              {item.name}
+            </Link>
+          ))}
+          <div className="relative">
+            <button
+              onClick={toggleDropdown}
+              className="font-bold text-white hover:text-gray-300"
+            >
+              Account
+            </button>
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-black border border-gray-700 rounded-md shadow-lg z-20">
+                {accountItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className="block px-4 py-2 text-white hover:bg-gray-700 no-underline"
+                    onClick={() => {
+                      handleAccountItemClick();
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
         </div>
+
+        <div className="md:hidden flex items-center">
+          {isSearchOpen ? (
+            <div className="relative flex-grow">
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="search-input rounded-full px-4 py-2 bg-gray-200 text-black placeholder-gray-500 w-full"
+              />
+              <button
+                type="button"
+                onClick={toggleSearch}
+                className="search-button absolute top-1/2 right-3 transform -translate-y-1/2"
+              >
+                <FaSearch className="search-icon" />
+              </button>
+            </div>
+          ) : (
+            <>
+              <button onClick={toggleSearch} className="text-xl">
+                <FaSearch />
+              </button>
+              <button onClick={toggleMobileMenu} className="text-xl ml-4">
+                ☰
+              </button>
+            </>
+          )}
+        </div>
       </div>
-    </footer>
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-black text-white flex flex-col items-center space-y-2 mt-2">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className="font-bold text-white hover:text-gray-300 no-underline"
+              onClick={closeMobileMenu}
+            >
+              {item.name}
+            </Link>
+          ))}
+          <div className="font-bold text-white">
+            <button onClick={toggleDropdown} className="hover:text-gray-300">
+              Account
+            </button>
+            {isDropdownOpen && (
+              <div className="bg-black border border-gray-700 rounded-md shadow-lg mt-2 w-full">
+                {accountItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    className="block px-4 py-2 text-white hover:bg-gray-700 no-underline"
+                    onClick={() => {
+                      handleAccountItemClick();
+                      setIsDropdownOpen(false);
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 
-export default Footer;
+export default Navbar;

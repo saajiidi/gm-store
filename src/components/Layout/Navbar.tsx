@@ -115,21 +115,27 @@ const Navbar: React.FC = () => {
         </div>
 
         <div className="md:hidden flex items-center">
-          <button onClick={toggleSearch} className="text-xl">
-            <FaSearch />
+          <button
+            type="button"
+            onClick={toggleSearch}
+            className={`search-button ${isSearchOpen ? "active" : ""}`}
+          >
+            <FaSearch className="search-icon" />
           </button>
+
           {isSearchOpen && (
-            <div className="relative ml-2">
+            <div className="relative ml-2 flex-1">
               <input
                 type="text"
                 placeholder="Search"
                 value={searchQuery}
                 onChange={handleSearchChange}
-                className="rounded-full px-4 py-2 bg-gray-200 text-black placeholder-gray-500"
+                className="expanded-search-input rounded-full px-4 py-2 bg-gray-200 text-black placeholder-gray-500"
               />
               <FaSearch className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-500" />
             </div>
           )}
+
           <button onClick={toggleMobileMenu} className="text-xl ml-4">
             ☰
           </button>
