@@ -56,4 +56,19 @@
 }
 
 /* Additional styles for responsive design */
-
+@media (max-width: 768px) {
+  .search-container.active .search-input {
+    width: 100%;
+  }
+  .search-input {
+    width: 0;
+    transition: width 0.3s ease;
+  }
+  .search-container.active .search-input {
+    width: calc(100% - 2.5rem);
+  }
+  .search-container .search-button {
+    position: relative;
+    right: auto;
+  }
+}
