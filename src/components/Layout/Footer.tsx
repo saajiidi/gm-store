@@ -17,27 +17,17 @@ const socialMediaLinks = [
     icon: <FaInstagram />,
     url: "https://www.instagram.com",
   },
-  {
-    name: "Address",
-    icon: <FaMapMarkerAlt />,
-    text: "BGB market, shop No: 29/kha, house, 19. Road, 35, sector: 7, Uttara Dhaka: 1230",
-  },
-  {
-    name: "Location",
-    icon: <FaLocationArrow />,
-    url: "https://www.google.com/maps/place/23.87262756989467,90.40014224456021",
-  },
 ];
 
 const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white text-center py-4 mt-auto">
       <div className="container mx-auto px-4">
-        <p>&copy; 2024 Gear Master. All rights reserved.</p>
-        <div className="flex flex-col md:flex-row justify-center items-center mt-4 space-y-2 md:space-y-0 md:space-x-4">
-          <div className="flex items-center space-x-2">
+        <p>&copy; 2024 Gear Master. All Rights Reserved.</p>
+        <div className="mt-4">
+          <div className="flex justify-center items-center space-x-4 mb-2">
             <span>Follow us on:</span>
-            {socialMediaLinks.slice(0, 2).map((link, index) => (
+            {socialMediaLinks.map((link, index) => (
               <a
                 key={index}
                 className="text-white hover:text-gray-300 mx-1"
@@ -49,19 +39,22 @@ const Footer: React.FC = () => {
               </a>
             ))}
           </div>
-          <div className="flex items-center space-x-2">
-            <FaMapMarkerAlt className="mr-1" />
-            <span>{socialMediaLinks[2].text}</span>
+          <div className="flex justify-center items-center space-x-2 mt-2">
+            <FaMapMarkerAlt />
+            <span>BGB Market, Shop: 29/Kha, House 19, Road 35, Sector 7</span>
           </div>
-          <a
-            className="flex items-center text-white hover:text-gray-300 space-x-2"
-            href={socialMediaLinks[3].url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLocationArrow className="mr-1" />
-            <span>View on Map</span>
-          </a>
+          <span>Uttara, Dhaka 1230</span>
+          <div className="flex justify-center items-center space-x-2 mt-2">
+            <a
+              className="text-white hover:text-gray-300 flex items-center space-x-2"
+              href="https://www.google.com/maps/place/23.87262756989467,90.40014224456021"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLocationArrow />
+              <span>View on Map</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
