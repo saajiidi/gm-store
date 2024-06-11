@@ -5,11 +5,12 @@ import LoginPage from "./components/Auth/LoginPage";
 import SignUpPage from "./components/Auth/SignUpPage";
 import Layout from "./components/Layout/Layout";
 import ProductListing from "./components/Products/ProductListing";
-import ProductPage from "./components/Products/ProductPage";
+import ProductPage from "./components/Products/ProductDetail";
 import CategoryPage from "./pages/CategoryPage";
 import Cart from "./pages/Cart";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Ensure this import for JS functionality
+import ProductDetail from "./components/Products/ProductDetail";
 
 
 const App: React.FC = () => {
@@ -22,7 +23,7 @@ const App: React.FC = () => {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/category/:categoryId" element={<CategoryPage />} />
           <Route path="/products" element={<ProductListing />} />
-          <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="/product/:productId" element={<ProductDetail/>} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Layout>
