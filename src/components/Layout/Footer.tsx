@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
           <span>Sector 7, Uttara, Dhaka 1230</span>
           <div className="flex justify-center items-center space-x-2 mt-2">
             <a
-              className="text-white hover:text-gray-300 flex items-center space-x-2"
+              className="text-white hover:text-gray-300 flex items-center space-x-2 no-underline"
               href="https://www.google.com/maps/place/23.87262756989467,90.40014224456021"
               target="_blank"
               rel="noopener noreferrer"
