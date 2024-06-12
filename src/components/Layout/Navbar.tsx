@@ -59,8 +59,12 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        <div className="flex items-center">
-          <img src={logo} alt="Gear Master Logo" className="w-100 h-10" />
+        <div className="flex justify-center">
+          <img
+            src={logo}
+            alt="Gear Master Logo"
+            className="w-100 h-10 animate-moveToCenter mx-auto"
+          />
         </div>
 
         <div className="hidden md:flex items-center space-x-4">

@@ -52,8 +52,8 @@ const products = [
     id: 6,
     name: "Bike Lock",
     image: lock2,
-    originalPrice: 500.0,
-    discountedPrice: 400.0,
+    originalPrice: 5000.0,
+    discountedPrice: 4000.0,
     quantity: 20,
   },
 ]; 
