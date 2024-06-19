@@ -13,16 +13,33 @@ module.exports = {
           "100%": { width: "100%" },
         },
         blinkCaret: {
-          "0%, 100%": { "border-color": "transparent" },
-          "50%": { "border-color": "white" },
+          "0%, 100%": { borderColor: "transparent" },
+          "50%": { borderColor: "white" },
         },
       },
+
       animation: {
-        moveToCenter: "moveToCenter 2s ease-in-out forwards",
+        moveToCenter: "moveToCenter 5s ease-in-out forwards",
         typing:
-          "typing 3s steps(20, end) 2s 1 normal both, blinkCaret 0.75s step-end infinite",
+          "typing 5s steps(20, end) 5s 1 normal both, blinkCaret 0.75s step-end infinite",
+      },
+
+      // Integrate .whitespace-nowrap styles
+      typography: {
+        DEFAULT: {
+          css: {
+            ".whitespace-nowrap": {
+              overflow: "hidden",
+              borderRight: "2px solid white", // Adjust as needed
+              animation: "blinkCaret 1s step-end infinite",
+              animationFillMode: "forwards",
+            },
+          },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"), // Ensure the typography plugin is included
+  ],
 };

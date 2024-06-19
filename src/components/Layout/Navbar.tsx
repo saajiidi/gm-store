@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import logo from "../../assets/img/logo.png";
@@ -19,6 +19,9 @@ const Navbar: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [animateTyping, setAnimateTyping] = useState(false);
+  const [animateLogo, setAnimateLogo] = useState(false);
+//  const location = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -44,6 +47,8 @@ const Navbar: React.FC = () => {
     setSearchQuery(e.target.value);
   };
 
+  
+
   return (
     <nav className="bg-black text-white p-2 fixed w-full z-10 top-0">
       <div className="container mx-auto flex justify-between items-center">
@@ -59,13 +64,13 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        <div className="flex justify-center">
+        <span className="flex justify-center">
           <img
             src={logo}
             alt="Gear Master Logo"
             className="w-100 h-10 animate-moveToCenter mx-auto"
           />
-        </div>
+        </span>
 
         <div className="hidden md:flex items-center space-x-4">
           <div className="relative">

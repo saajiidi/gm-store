@@ -1,22 +1,27 @@
+// src/components/Auth/LoginPage.tsx
+
 import React, { useState } from "react";
 import {
-  getAuth,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
   FacebookAuthProvider,
 } from "firebase/auth";
-import firebaseApp from "../../firebaseConfig";
+import { auth } from "../../firebaseConfig"; // Make sure to import auth from your firebaseConfig file
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 
-const auth = getAuth(firebaseApp);
+const isErrorWithMessage = (error: unknown): error is Error => {
+  return (error as Error).message !== undefined;
+};
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
+    setError("");
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -25,26 +30,43 @@ const LoginPage: React.FC = () => {
       );
       console.log("Logged in user:", userCredential.user);
     } catch (error) {
+      if (isErrorWithMessage(error)) {
+        setError("Error logging in: " + error.message);
+      } else {
+        setError("Error logging in.");
+      }
       console.error("Error logging in:", error);
     }
   };
 
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
+    setError("");
     try {
       const result = await signInWithPopup(auth, provider);
       console.log("Google sign in with:", result.user);
     } catch (error) {
+      if (isErrorWithMessage(error)) {
+        setError("Error logging in with Google: " + error.message);
+      } else {
+        setError("Error logging in with Google.");
+      }
       console.error("Error logging in with Google:", error);
     }
   };
 
   const handleFacebookLogin = async () => {
     const provider = new FacebookAuthProvider();
+    setError("");
     try {
       const result = await signInWithPopup(auth, provider);
       console.log("Facebook sign in with:", result.user);
     } catch (error) {
+      if (isErrorWithMessage(error)) {
+        setError("Error logging in with Facebook: " + error.message);
+      } else {
+        setError("Error logging in with Facebook.");
+      }
       console.error("Error logging in with Facebook:", error);
     }
   };
@@ -53,6 +75,7 @@ const LoginPage: React.FC = () => {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
         <h2 className="text-center text-2xl font-bold mb-6">Login</h2>
+        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         <form onSubmit={handleLogin}>
           <div className="form-group mb-4">
             <label
@@ -98,15 +121,13 @@ const LoginPage: React.FC = () => {
             className="w-full py-2 flex items-center justify-center bg-orange-500 text-white rounded-full hover:bg-orange-600"
             onClick={handleGoogleLogin}
           >
-            <FaGoogle className="mr-2" />
-            Sign in with Google
+            <FaGoogle className="mr-2" /> Sign in with Google
           </button>
           <button
             className="w-full py-2 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700"
             onClick={handleFacebookLogin}
           >
-            <FaFacebook className="mr-2" />
-            Sign in with Facebook
+            <FaFacebook className="mr-2" /> Sign in with Facebook
           </button>
         </div>
       </div>
