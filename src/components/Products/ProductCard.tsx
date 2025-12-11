@@ -1,69 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaBoxOpen } from "react-icons/fa";
-
-interface Product {
-  id: number;
-  name: string;
-  image: string;
-  originalPrice: number;
-  discountedPrice: number;
-  quantity: number;
-}
+import { FaStar, FaShoppingCart } from "react-icons/fa";
+import { Product } from "../../data/demoData";
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const discountPercentage = Math.floor(
-    ((product.originalPrice - product.discountedPrice) /
-      product.originalPrice) *
-      100
-  );
-
   return (
-    <div className="col-md-4 mb-4">
-      <div className="card h-100 w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-        <span>
-          <s className="absolute top-2 left-2 text-left text-red-500 text-xl">
-            &#2547;{product.originalPrice.toFixed(2)}
-          </s>
-          <p className="absolute top-2 right-2 text-left text-green-500 text-xl">
-            &#2547;{product.discountedPrice.toFixed(2)}
-          </p>
-        </span>
-        <Link to={`/product/${product.id}`} className="block relative">
-          <div className="flex justify-center items-center h-60">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="card-img-top h-full object-cover"
-            />
-            <span className="absolute top-2 right-2 bg-orange-500 text-white font-bold py-2 px-4 rounded-full">
-              -{discountPercentage}%
-            </span>
-            <span className="absolute bottom-2 left-2 bg-green-500 text-white py-2 px-4 rounded-full">
-              <FaBoxOpen className="mr-2" /> {product.quantity}
-            </span>
-          </div>
-        </Link>
-        <div className="card-body">
-          <Link
-            to={`/product/${product.id}`}
-            className="no-underline text-chocolate font-bold block text-center"
-          >
-            <h5 className="card-title">{product.name}</h5>
-          </Link>
+    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full border border-gray-100">
+      <Link to={`/product/${product.id}`} className="relative group block overflow-hidden bg-gray-100 h-64 flex items-center justify-center">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300" />
+      </Link>
 
-          <div className="flex justify-between mt-4 space-x-2">
-            <button className="w-1/2 bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-              Add to Cart
-            </button>
-            <button className="w-1/2 bg-blue-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full">
-              Buy Now
-            </button>
+      <div className="p-5 flex flex-col flex-grow">
+        <div className="flex justify-between items-start mb-2">
+          <span className="text-xs font-semibold tracking-wide uppercase text-blue-600 bg-blue-50 px-2 py-1 rounded">
+            {product.category}
+          </span>
+          <div className="flex items-center text-yellow-400 text-sm">
+            <FaStar className="mr-1" />
+            <span className="text-gray-600 font-medium">({product.rating})</span>
           </div>
+        </div>
+
+        <Link to={`/product/${product.id}`} className="no-underline group">
+          <h3 className="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition-colors duration-200 line-clamp-1 mb-1">
+            {product.name}
+          </h3>
+        </Link>
+
+        <p className="text-gray-500 text-sm mb-4 line-clamp-2">{product.description}</p>
+
+        <div className="mt-auto flex items-center justify-between">
+          <div className="flex flex-col">
+            <span className="text-xs text-gray-400">Price</span>
+            <span className="text-xl font-bold text-gray-900">&#2547;{product.price.toLocaleString()}</span>
+          </div>
+
+          <button className="flex items-center justify-center bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300 shadow-lg transform active:scale-95">
+            <FaShoppingCart />
+          </button>
         </div>
       </div>
     </div>
@@ -71,3 +54,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 };
 
 export default ProductCard;
+
