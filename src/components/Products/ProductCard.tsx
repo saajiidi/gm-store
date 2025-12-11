@@ -2,12 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaStar, FaShoppingCart } from "react-icons/fa";
 import { Product } from "../../data/demoData";
+import { useCart } from "../../context/CartContext";
 
 interface ProductCardProps {
   product: Product;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent navigating to product detail
+    addToCart(product);
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-2xl transition-shadow duration-300 flex flex-col h-full border border-gray-100">
       <Link to={`/product/${product.id}`} className="relative group block overflow-hidden bg-gray-100 h-64 flex items-center justify-center">
@@ -44,7 +52,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <span className="text-xl font-bold text-gray-900">&#2547;{product.price.toLocaleString()}</span>
           </div>
 
-          <button className="flex items-center justify-center bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300 shadow-lg transform active:scale-95">
+          <button
+            onClick={handleAddToCart}
+            className="flex items-center justify-center bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors duration-300 shadow-lg transform active:scale-95"
+          >
             <FaShoppingCart />
           </button>
         </div>
@@ -53,5 +64,5 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   );
 };
 
-export default ProductCard;
 
+export default ProductCard;

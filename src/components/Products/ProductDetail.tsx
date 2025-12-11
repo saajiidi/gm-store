@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { FaStar, FaShareAlt, FaComment, FaShoppingCart, FaCheck } from "react-icons/fa";
 import { products } from "../../data/demoData";
+import { useCart } from "../../context/CartContext";
 
 
 const ProductDetail: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
 
   if (!productId) {
     return <div>Product not found</div>;
@@ -16,6 +19,12 @@ const ProductDetail: React.FC = () => {
 
   if (!product) {
     return <div className="text-center py-20 text-2xl">Product not found</div>;
+  }
+
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000); // Reset after 2 seconds
   }
 
   return (
@@ -55,8 +64,18 @@ const ProductDetail: React.FC = () => {
                 onClick={() => setQuantity(quantity + 1)}
               >+</button>
             </div>
-            <button className="flex-1 bg-black hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-full transition-colors flex items-center justify-center">
-              <FaShoppingCart className="mr-2" /> Add to Cart
+            <button
+              onClick={handleAddToCart}
+              className={`flex-1 font-bold py-3 px-8 rounded-full transition-all flex items-center justify-center ${added
+                  ? "bg-green-600 hover:bg-green-700 text-white"
+                  : "bg-black hover:bg-gray-800 text-white"
+                }`}
+            >
+              {added ? (
+                <><FaCheck className="mr-2" /> Added to Cart</>
+              ) : (
+                <><FaShoppingCart className="mr-2" /> Add to Cart</>
+              )}
             </button>
           </div>
 
@@ -74,5 +93,5 @@ const ProductDetail: React.FC = () => {
   );
 };
 
-export default ProductDetail;
 
+export default ProductDetail;
