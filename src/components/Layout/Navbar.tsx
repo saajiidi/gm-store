@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
             className="text-white no-underline hover:no-underline flex items-center"
             onClick={closeMobileMenu}
           >
-            <span className="text-2xl font-bold tracking-tighter whitespace-nowrap overflow-hidden border-r-2 border-white animate-typing">
+            <span className="text-2xl font-bold tracking-tighter typing-animation">
               Gear Master
             </span>
           </Link>

@@ -81,9 +81,9 @@ const Cart: React.FC = () => {
               <span className="text-lg font-bold text-blue-600">&#2547;{total.toLocaleString()}</span>
             </div>
 
-            <button className="w-full bg-black hover:bg-gray-800 text-white font-bold py-4 rounded-lg transition-colors shadow-lg mt-4">
+            <Link to="/checkout" className="block w-full text-center bg-black hover:bg-gray-800 text-white font-bold py-4 rounded-lg transition-colors shadow-lg mt-4">
               Proceed to Checkout
-            </button>
+            </Link>
           </div>
         </div>
 

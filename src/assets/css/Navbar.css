@@ -1,57 +1,51 @@
-/* Typing animation */
-@keyframes typing {
-  from {
+/* Typing animation cycle */
+@keyframes typing-cycle {
+  0% {
     width: 0;
   }
-  to {
+
+  30% {
     width: 100%;
+  }
+
+  80% {
+    width: 100%;
+  }
+
+  90% {
+    width: 0;
+  }
+
+  100% {
+    width: 0;
   }
 }
 
 /* Blinking caret */
 @keyframes blink-caret {
+
   from,
   to {
     border-color: transparent;
   }
+
   50% {
     border-color: white;
   }
 }
 
-/* Typing animation with disappearing effect */
+/* Applied class */
 .typing-animation {
   overflow: hidden;
   white-space: nowrap;
   border-right: 0.15em solid white;
   display: inline-block;
-  animation: 
-    typing 5s steps(12, end) 1s forwards, /* Typing effect */
-    blink-caret 0.75s step-end infinite 1s, /* Blinking caret */
-    disappear 10s 15s forwards, /* Disappear letter by letter after 15 seconds */
-    reappear 30s infinite; /* Reappear and restart typing animation every 30 seconds */
-}
-
-/* Disappear letter by letter */
-@keyframes disappear {
-  0% {
-    width: 100%;
-    opacity: 1;
-  }
-  100% {
-    width: 0;
-    opacity: 0;
-  }
-}
-
-/* Reappear effect */
-@keyframes reappear {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  100% {
-    width: 100%;
-    opacity: 1;
-  }
+  /* 
+     Cycle duration: 4s
+     Steps: 11 ( Exact length of "Gear Master")
+     Infinite loop
+  */
+  animation:
+    typing-cycle 4s steps(11, end) infinite,
+    blink-caret 0.75s step-end infinite;
 }

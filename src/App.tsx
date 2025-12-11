@@ -8,6 +8,8 @@ import ProductListing from "./components/Products/ProductListing";
 import ProductDetail from "./components/Products/ProductDetail";
 import CategoryPage from "./pages/CategoryPage";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
 import { CartProvider } from "./context/CartContext";
 import AdminLayout from "./components/Admin/AdminLayout";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
@@ -37,6 +39,8 @@ const App: React.FC = () => {
                 <Route path="/products" element={<ProductListing />} />
                 <Route path="/product/:productId" element={<ProductDetail />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/order-success" element={<OrderSuccess />} />
               </Routes>
             </Layout>
           } />
