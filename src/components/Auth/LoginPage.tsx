@@ -1,5 +1,3 @@
-// src/components/Auth/LoginPage.tsx
-
 import React, { useState } from "react";
 import {
   signInWithEmailAndPassword,
@@ -7,8 +5,9 @@ import {
   signInWithPopup,
   FacebookAuthProvider,
 } from "firebase/auth";
-import { auth } from "../../firebaseConfig"; // Make sure to import auth from your firebaseConfig file
+import { auth } from "../../firebaseConfig";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const isErrorWithMessage = (error: unknown): error is Error => {
   return (error as Error).message !== undefined;
@@ -18,6 +17,7 @@ const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -29,6 +29,7 @@ const LoginPage: React.FC = () => {
         password
       );
       console.log("Logged in user:", userCredential.user);
+      navigate("/"); // Redirect to home on success
     } catch (error) {
       if (isErrorWithMessage(error)) {
         setError("Error logging in: " + error.message);
@@ -45,6 +46,7 @@ const LoginPage: React.FC = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       console.log("Google sign in with:", result.user);
+      navigate("/"); // Redirect to home on success
     } catch (error) {
       if (isErrorWithMessage(error)) {
         setError("Error logging in with Google: " + error.message);
@@ -61,6 +63,7 @@ const LoginPage: React.FC = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       console.log("Facebook sign in with:", result.user);
+      navigate("/"); // Redirect to home on success
     } catch (error) {
       if (isErrorWithMessage(error)) {
         setError("Error logging in with Facebook: " + error.message);
