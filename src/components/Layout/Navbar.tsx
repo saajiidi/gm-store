@@ -58,17 +58,17 @@ const Navbar: React.FC = () => {
           </button>
           <Link
             to="/"
-            className="text-white no-underline hover:no-underline flex items-center"
+            className="text-white no-underline hover:no-underline flex items-center lg:hidden"
             onClick={closeMobileMenu}
           >
-            <span className="text-2xl font-bold tracking-tighter typing-animation">
+            <span className="text-2xl font-bold tracking-tighter typing-animation overflow-hidden whitespace-nowrap border-r-2 border-white pr-1">
               Gear Master
             </span>
           </Link>
         </div>
 
-        {/* Centered Logo Image (Hidden on mobile if needed, or kept) */}
-        <div className="hidden md:flex justify-center absolute left-1/2 transform -translate-x-1/2">
+        {/* Centered Logo Image (Show only on large screens to prevent overlap) */}
+        <div className="hidden lg:flex justify-center absolute left-1/2 transform -translate-x-1/2">
           <img src={logo} alt="Gear Master" className="h-10 animate-moveToCenter" />
         </div>
 
