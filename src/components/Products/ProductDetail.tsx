@@ -13,10 +13,6 @@ const ProductDetail: React.FC = () => {
 
   const [selectedImage, setSelectedImage] = useState<string>("");
 
-  if (!productId) {
-    return <div>Product not found</div>;
-  }
-
   const product = products.find((p) => p.id === productId);
 
   // Initialize selectedImage when product loads
@@ -25,6 +21,10 @@ const ProductDetail: React.FC = () => {
       setSelectedImage(product.image);
     }
   }, [product]);
+
+  if (!productId) {
+    return <div>Product not found</div>;
+  }
 
   if (!product) {
     return <div className="text-center py-20 text-2xl">Product not found</div>;
