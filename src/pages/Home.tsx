@@ -19,7 +19,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Features Section */}
-      <div className="py-12 bg-gray-50">
+      <div className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard icon={<FaShippingFast />} title="Free Shipping" description="On orders over &#2547;5000" />
@@ -36,12 +36,15 @@ const Home: React.FC = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-gray-900 py-16 text-white text-center">
-        <h2 className="text-3xl font-bold mb-4">Ready to Upgrade Your Ride?</h2>
-        <p className="mb-8 text-gray-400">Join thousands of happy cyclists today.</p>
-        <Link to="/products" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300">
-          Shop Now
-        </Link>
+      <div className="bg-gradient-to-r from-gray-900 to-black py-24 text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">Ready to Upgrade Your Ride?</h2>
+          <p className="mb-10 text-gray-300 text-lg max-w-2xl mx-auto">Join thousands of happy cyclists today and experience the difference of premium gear.</p>
+          <Link to="/products" className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/50 text-lg">
+            Shop Now
+          </Link>
+        </div>
       </div>
 
     </div>
@@ -50,11 +53,11 @@ const Home: React.FC = () => {
 
 const FeatureCard: React.FC<{ icon: React.ReactNode, title: string, description: string }> = ({ icon, title, description }) => {
   return (
-    <div className="flex items-center p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-      <div className="text-3xl text-blue-600 mr-4">{icon}</div>
+    <div className="flex flex-col items-center text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-2 group">
+      <div className="text-4xl text-blue-600 mb-4 transform group-hover:scale-110 transition-transform duration-300 bg-blue-50 p-4 rounded-full">{icon}</div>
       <div>
-        <h3 className="font-bold text-lg">{title}</h3>
-        <p className="text-gray-500 text-sm">{description}</p>
+        <h3 className="font-bold text-xl mb-2 text-gray-900">{title}</h3>
+        <p className="text-gray-500">{description}</p>
       </div>
     </div>
   )

@@ -56,41 +56,44 @@ const ProductDetail: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col">
-          <div className="mb-4">
-            <span className="text-sm font-bold text-blue-600 tracking-wide uppercase">{product.category}</span>
-            <h1 className="text-4xl font-bold text-gray-900 mt-2 mb-2">{product.name}</h1>
-            <div className="flex items-center space-x-2">
-              <div className="flex text-yellow-400 text-sm">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} className={i < Math.floor(product.rating) ? "text-yellow-400" : "text-gray-300"} />
-                ))}
+        <div className="flex flex-col justify-center">
+          <div className="mb-6">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-sm font-bold text-blue-600 tracking-wider uppercase bg-blue-50 px-3 py-1 rounded-full">{product.category}</span>
+              <div className="flex items-center bg-yellow-50 px-3 py-1 rounded-full">
+                <FaStar className="text-yellow-400 mr-2" />
+                <span className="font-bold text-gray-800">{product.rating}</span>
+                <span className="text-gray-400 mx-2">|</span>
+                <span className="text-gray-500 text-sm">{product.reviews} reviews</span>
               </div>
-              <span className="text-gray-500 text-sm">({product.reviews} reviews)</span>
             </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-2 mb-4 leading-tight">{product.name}</h1>
           </div>
 
-          <p className="text-gray-600 text-lg mb-6 leading-relaxed">{product.description}</p>
+          <p className="text-gray-500 text-lg mb-8 leading-relaxed font-light">{product.description}</p>
 
-          <div className="text-3xl font-bold text-gray-900 mb-8">&#2547;{product.price.toLocaleString()}</div>
+          <div className="text-4xl font-extrabold text-gray-900 mb-8 flex items-baseline">
+            &#2547;{product.price.toLocaleString()}
+            <span className="text-base font-normal text-gray-400 ml-2">invoice included</span>
+          </div>
 
-          <div className="flex items-center space-x-4 mb-8">
-            <div className="flex items-center border border-gray-300 rounded-full">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-8">
+            <div className="flex items-center border-2 border-gray-200 rounded-full bg-white">
               <button
-                className="px-4 py-2 hover:bg-gray-100 rounded-l-full"
+                className="w-12 h-12 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors text-xl font-bold text-gray-600"
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
               >-</button>
-              <span className="px-4 py-2 font-bold min-w-[3rem] text-center">{quantity}</span>
+              <span className="w-12 text-center font-bold text-lg">{quantity}</span>
               <button
-                className="px-4 py-2 hover:bg-gray-100 rounded-r-full"
+                className="w-12 h-12 flex items-center justify-center hover:bg-gray-100 rounded-full transition-colors text-xl font-bold text-gray-600"
                 onClick={() => setQuantity(quantity + 1)}
               >+</button>
             </div>
             <button
               onClick={handleAddToCart}
-              className={`flex-1 font-bold py-3 px-8 rounded-full transition-all flex items-center justify-center ${added
+              className={`flex-1 font-bold h-14 px-8 rounded-full transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg ${added
                 ? "bg-green-600 hover:bg-green-700 text-white"
-                : "bg-black hover:bg-gray-800 text-white"
+                : "bg-gray-900 hover:bg-blue-600 text-white"
                 }`}
             >
               {added ? (
@@ -101,12 +104,12 @@ const ProductDetail: React.FC = () => {
             </button>
           </div>
 
-          <div className="flex space-x-4 mt-auto pt-8 border-t border-gray-100">
-            <button className="flex items-center text-gray-500 hover:text-black transition-colors">
+          <div className="flex space-x-6 mt-auto pt-8 border-t border-gray-100">
+            <button className="flex items-center text-gray-500 hover:text-gray-900 transition-colors font-medium">
               <FaComment className="mr-2" /> Write a Review
             </button>
-            <button className="flex items-center text-gray-500 hover:text-black transition-colors">
-              <FaShareAlt className="mr-2" /> Share
+            <button className="flex items-center text-gray-500 hover:text-gray-900 transition-colors font-medium">
+              <FaShareAlt className="mr-2" /> Share Product
             </button>
           </div>
         </div>
