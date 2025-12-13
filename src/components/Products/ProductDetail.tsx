@@ -11,11 +11,20 @@ const ProductDetail: React.FC = () => {
   const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
 
+  const [selectedImage, setSelectedImage] = useState<string>("");
+
   if (!productId) {
     return <div>Product not found</div>;
   }
 
   const product = products.find((p) => p.id === productId);
+
+  // Initialize selectedImage when product loads
+  React.useEffect(() => {
+    if (product?.image) {
+      setSelectedImage(product.image);
+    }
+  }, [product]);
 
   if (!product) {
     return <div className="text-center py-20 text-2xl">Product not found</div>;
@@ -30,8 +39,21 @@ const ProductDetail: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div className="rounded-xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center p-4">
-          <img src={product.image} alt={product.name} className="max-w-full h-auto object-contain hover:scale-105 transition-transform duration-300" />
+        <div className="flex flex-col gap-4">
+          <div className="rounded-xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center p-4 h-[400px]">
+            <img src={selectedImage || product.image} alt={product.name} className="max-w-full h-full object-contain hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div className="flex gap-4 overflow-x-auto pb-2">
+            {product.images?.map((img, idx) => (
+              <div
+                key={idx}
+                className={`w-24 h-24 flex-shrink-0 cursor-pointer border-2 rounded-lg overflow-hidden ${selectedImage === img ? 'border-blue-500' : 'border-transparent'}`}
+                onClick={() => setSelectedImage(img)}
+              >
+                <img src={img} alt={`${product.name} ${idx + 1}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="flex flex-col">
@@ -67,8 +89,8 @@ const ProductDetail: React.FC = () => {
             <button
               onClick={handleAddToCart}
               className={`flex-1 font-bold py-3 px-8 rounded-full transition-all flex items-center justify-center ${added
-                  ? "bg-green-600 hover:bg-green-700 text-white"
-                  : "bg-black hover:bg-gray-800 text-white"
+                ? "bg-green-600 hover:bg-green-700 text-white"
+                : "bg-black hover:bg-gray-800 text-white"
                 }`}
             >
               {added ? (
