@@ -8,13 +8,15 @@ import {
   FaPaperPlane,
   FaMapMarkerAlt,
   FaPhone,
-  FaEnvelope
+  FaEnvelope,
+  FaBicycle
 } from "react-icons/fa";
 import logo from "../../assets/img/logo.png";
+import "../../assets/css/Footer.css";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-black text-gray-300 pt-16 pb-8 mt-auto border-t border-gray-800">
+    <footer className="bg-black text-gray-300 pt-16 pb-8 mt-auto border-t border-gray-800 relative z-0">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaSearch, FaShoppingCart, FaUser, FaBars, FaTimes } from "react-icons/fa";
+import { FaSearch, FaShoppingCart, FaUser, FaBars, FaTimes, FaBicycle } from "react-icons/fa";
 import logo from "../../assets/img/logo.png";
 import { useCart } from "../../context/CartContext";
+import "../../assets/css/Navbar.css";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -14,6 +15,7 @@ const accountItems = [
   { name: "Sign Up", path: "/signup" },
   { name: "Admin", path: "/admin" },
 ];
+
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -58,7 +60,7 @@ const Navbar: React.FC = () => {
           </button>
           <Link
             to="/"
-            className="text-white no-underline hover:no-underline flex items-center lg:hidden"
+            className="text-white no-underline hover:no-underline flex items-center"
             onClick={closeMobileMenu}
           >
             <span className="text-2xl font-bold tracking-tighter typing-animation overflow-hidden whitespace-nowrap border-r-2 border-white pr-1">
@@ -67,10 +69,10 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        {/* Centered Logo Image (Show only on large screens to prevent overlap) */}
-        <div className="hidden lg:flex justify-center absolute left-1/2 transform -translate-x-1/2">
+        {/* Centered Logo Image - HIDDEN as we use text now */}
+        {/* <div className="hidden lg:flex justify-center absolute left-1/2 transform -translate-x-1/2">
           <img src={logo} alt="Gear Master" className="h-10 animate-moveToCenter" />
-        </div>
+        </div> */}
 
         {/* Desktop Nav Items */}
         <div className="hidden md:flex items-center space-x-6">
@@ -192,6 +194,16 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       )}
+      {/* Bike Animation in Navbar */}
+      {/* Bike Animation in Navbar */}
+      <div className="nav-bike-container">
+        <div className="nav-moving-bike">
+          <span className="smoke"></span>
+          <span className="smoke"></span>
+          <span className="smoke"></span>
+          <img src={logo} alt="Gear Master Bike" />
+        </div>
+      </div>
     </nav>
   );
 };

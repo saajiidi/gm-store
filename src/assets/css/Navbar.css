@@ -49,3 +49,95 @@
     typing-cycle 4s steps(11, end) infinite,
     blink-caret 0.75s step-end infinite;
 }
+
+/* Bike Animation in Navbar */
+@keyframes bikeRideNavbar {
+  0% {
+    left: -50px;
+    transform: rotate(0deg);
+  }
+
+  100% {
+    left: 100%;
+    transform: rotate(0deg);
+  }
+}
+
+
+.nav-bike-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  /* Smaller height for navbar */
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+  /* Below search bar if search bar is z-50 or handled via container z-index */
+}
+
+.nav-moving-bike {
+  position: absolute;
+  bottom: 2px;
+  /* Ride along the bottom edge */
+  /* font-size: 1.5rem; - Removed, using image */
+  /* color: #60a5fa; - Removed */
+  animation: bikeRideNavbar 20s linear infinite;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+
+.nav-moving-bike img {
+  height: 25px;
+  /* Small size as requested */
+  width: auto;
+  min-width: 25px;
+  /* Prevent squeezing */
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Smoke Effect */
+@keyframes smokeRising {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(-20px) scale(2);
+    opacity: 0;
+  }
+}
+
+.smoke {
+  position: absolute;
+  bottom: 5px;
+  left: -10px;
+  /* Behind the bike */
+  width: 6px;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: smokeRising 1s ease-out infinite;
+}
+
+.smoke:nth-child(1) {
+  animation-delay: 0s;
+  left: -10px;
+}
+
+.smoke:nth-child(2) {
+  animation-delay: 0.2s;
+  left: -15px;
+  bottom: 8px;
+}
+
+.smoke:nth-child(3) {
+  animation-delay: 0.4s;
+  left: -8px;
+  bottom: 3px;
+}

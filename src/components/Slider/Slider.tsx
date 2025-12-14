@@ -4,23 +4,23 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2670&auto=format&fit=crop",
-    alt: "Cycling Passion",
+    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2670&auto=format&fit=crop", // Classic motorbike / Biker vibe
+    alt: "Ride Free",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?q=80&w=2670&auto=format&fit=crop",
-    alt: "Mountain Biking",
+    image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=2670&auto=format&fit=crop", // High performance bike
+    alt: "Performance Redefined",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1507035895480-2b3156c311a6?q=80&w=2670&auto=format&fit=crop",
-    alt: "Urban Cycling",
+    image: "https://images.unsplash.com/photo-1622185135505-2d795043dfeb?q=80&w=2670&auto=format&fit=crop", // Aesthetic road bike sunset
+    alt: "Sunset Ride",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1520696956272-9b2512f7f90f?q=80&w=2670&auto=format&fit=crop",
-    alt: "Gear Up",
+    image: "https://images.unsplash.com/photo-1485965120184-e224f711712e?q=80&w=2670&auto=format&fit=crop", // Bicycle urban/detail
+    alt: "Urban Explorer",
   },
 ];
 

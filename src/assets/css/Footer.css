@@ -1,0 +1,52 @@
+/* Bike Animation */
+@keyframes bikeRide {
+    0% {
+        left: -100px;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        left: 100%;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes wheelSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.bike-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    /* Adjust based on bike size */
+    overflow: hidden;
+    pointer-events: none;
+    /* Let clicks pass through */
+    z-index: 10;
+}
+
+.moving-bike {
+    position: absolute;
+    bottom: 10px;
+    font-size: 3rem;
+    /* Size of the icon */
+    color: #3b82f6;
+    /* Tailwind blue-500 */
+    animation: bikeRide 15s linear infinite;
+}
+
+.moving-bike svg {
+    /* If we want to animate wheels separately we'd need a more complex SVG structure, 
+     but rotating the whole icon looks weird for a bike. 
+     Just moving it across is usually enough for a simple effect. 
+     Or we can add a slight bounce. */
+}
