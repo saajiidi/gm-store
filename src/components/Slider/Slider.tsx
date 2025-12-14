@@ -4,23 +4,23 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const slides = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=2670&auto=format&fit=crop", // Classic motorbike / Biker vibe
-    alt: "Ride Free",
+    image: "https://images.unsplash.com/photo-1618176580970-f65555d49ba3?q=80&w=2670&auto=format&fit=crop", // Moody black motorcycle
+    alt: "Dark Aesthetic Moto",
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=2670&auto=format&fit=crop", // High performance bike
-    alt: "Performance Redefined",
+    image: "https://images.unsplash.com/photo-1558980394-4c7c9299fe96?q=80&w=2670&auto=format&fit=crop", // Classic motorbike / Biker vibe
+    alt: "Ride Free",
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1622185135505-2d795043dfeb?q=80&w=2670&auto=format&fit=crop", // Aesthetic road bike sunset
-    alt: "Sunset Ride",
+    image: "https://images.unsplash.com/photo-1614165936126-2ed18e471b10?q=80&w=2670&auto=format&fit=crop", // Neon/Night bike aesthetic
+    alt: "Neon Night Ride",
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1485965120184-e224f711712e?q=80&w=2670&auto=format&fit=crop", // Bicycle urban/detail
-    alt: "Urban Explorer",
+    image: "https://images.unsplash.com/photo-1511993226957-cd1667ef9d33?q=80&w=2670&auto=format&fit=crop", // Misty aesthetic cycling
+    alt: "Misty Journey",
   },
 ];
 
